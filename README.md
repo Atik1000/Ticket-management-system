@@ -1,11 +1,14 @@
-<!-- feature list -->
+
 [cpp]: # Language: markdown
 [cpp]: # Path: cpp/README.md
 
 
 1.Admin feature:
-    1.1.User module 
-    1.2.Category module:AC/non Ac/chair 
+
+    1.1.User module :Admin login/reg and user management
+
+    1.2.Category module: Admin can add/delete/modify category
+    AC/non Ac/chair 
     1.3.Bus Type module:Local/Direct/Express
     1.4.Bus module: Name,Number,Type,Route,Time,Price,Seat,Seat Available,Seat Booked,Seat Reserved,Seat Cancelled,Seat Sold,Seat Cancelled
 
@@ -47,6 +50,7 @@
 
 2.User feature:
     2.1.User registration:
+
         2.1.1.Reg/login
 
 
@@ -64,9 +68,3 @@
         2.2.5.Seat Status
         2.2.6.Path
 
-
-
-
-
-       
-    
