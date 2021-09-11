@@ -172,6 +172,16 @@ using namespace std;
 //     }
 // };
 
+void print(vector<string> &stringVec)
+{
+    cout << setfill('*') << setw(40) << '*' << endl;
+    for (int i = 0; i < stringVec.size(); i++)
+    {
+        cout << '*' << left << setfill(' ') << setw(40 - 2) << stringVec[i] << '*' << endl;
+    }
+    cout << setfill('*') << setw(40) << '*' << endl;
+}
+vector<string> vec;
 class User
 {
     string uName;
@@ -182,8 +192,11 @@ public:
     string line;
     User()
     {
-        cout << "Enter choice:" << endl;
-        cout << "1.Register\t\t2.Login" << endl;
+        vec = {
+            "Enter Choice:",
+            "Register-> 1",
+            "Login-> 2"};
+        print(vec);
         cin >> choice;
     }
     void registration(string uName, string pass)
@@ -192,7 +205,9 @@ public:
         output.open("user.txt", ios_base::app);
         output << uName << " " << pass << endl;
         output.close();
-        cout << "Registration complete!" << endl;
+        vec = {
+            "Registration complete!"};
+        print(vec);
     }
 
     string login(string logName, string logPass)
@@ -201,7 +216,9 @@ public:
 
         if (!input)
         {
-            cout << "Error creating file!";
+            vec = {
+                "Error creating file!"};
+            print(vec);
         }
 
         while (getline(input, line))
@@ -209,12 +226,16 @@ public:
             istringstream iss(line);
             if (iss >> uName >> pass && uName == logName && pass == logPass)
             {
-                cout << "Login successful" << endl;
+                vec = {
+                    "Login successful."};
+                print(vec);
                 input.close();
                 return uName;
             }
         }
-        cout << "Login failed!" << endl;
+        vec = {
+            "Login Failed!"};
+        print(vec);
 
         input.close();
         return "";
@@ -227,9 +248,14 @@ int main()
 
     User user1;
 
-    cout << "Enter username:" << endl;
+    vec = {
+        "Enter username"};
+    print(vec);
+
     cin >> uName;
-    cout << "Enter password:" << endl;
+    vec = {
+        "Enter Password"};
+    print(vec);
     cin >> pass;
 
     if (user1.choice == 1)
@@ -242,7 +268,9 @@ int main()
     }
     else
     {
-        cout << "No more option";
+        vec = {
+            "No More Option!"};
+        print(vec);
     }
     return 0;
 }
