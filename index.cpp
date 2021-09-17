@@ -12,7 +12,10 @@ void user_login();
 void registration(string text, string fileName, void (*login)());
 void admin_panel(string username);
 void user_panel(string username);
-
+void chooseSeat();
+int COLMNV=10;
+int ROWV=4;
+int  fseat[ROWV][COLMNV], booked_row, booked_col;
 int main() {
     int choice;
     system("cls");
@@ -253,3 +256,27 @@ void user_panel(string username) {
     }
 }
 
+void chooseSeat() {
+    int row, col,k;
+    cout<<"\t\t\tWhich row do you want to choose? : ";
+    cin>>row;
+    cout<<"\t\t\tWhich seat do you want to select? : ";
+    cin>>col;
+    if (row > ROWV || col > COLMNV)
+    {
+        cout<<"Wrong Entry !! Try again";
+        chooseSeat();
+    }
+    else if (fseat[row - 1][col - 1] != 0)
+    {
+        cout<<"Seat is already reserved try another !!";
+        chooseSeat();
+    }
+    else
+    {
+        fseat[row - 1][col - 1] = 1;
+        booked_row = row - 1;
+        booked_col = col - 1;
+        // displaySeat();
+    }
+}
