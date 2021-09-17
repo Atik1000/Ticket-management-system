@@ -156,6 +156,69 @@ public:
         input.close();
         return "";
     }
+
+    // test
+    //struct busroot
+    //{
+        //char root_name[MAX_LIMIT];
+        //char from[MAX_LIMIT];
+        //char to[MAX_LIMIT];
+        //char distance[MAX_LIMIT];
+    // };
+
+    void busRootAdd()
+    {
+        FILE *fptr; // test
+        struct busroot root; // test
+        fptr = fopen("busroot.txt","a"); // test
+        cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" << endl;
+        cout << "Welcome Bus root Add Form" << endl;
+        cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" << endl;
+        cout << "  " << endl;
+        cout << "Enter Root Name: " << endl;
+        cin >> rootName;
+        cout << "Enter Root From: " << endl;
+        cin >> rootFrom;
+        cout << "Enter Root To: " << endl;
+        cin >> rootTo;
+        cout << "Enter Root Distance: " << endl;
+        cin >> rootDistance;
+
+        // test
+        if(fptr == NULL) {
+        cout << "Error!" << endl;
+          printf("Error!");
+          exit(1);
+        }
+
+        fwrite(&root, sizeof(root), 1, fptr); // test
+        fclose(fptr); // test
+        cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" << endl;
+        cout << "Root Name %s's  Data Saved Successfully !!" . rootName << endl;
+        cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" << endl;
+    }
+
+    void busRootView()
+    {
+        char ch;
+        FILE *fptr;
+        struct busroot root;
+        fptr = fopen("busroot.txt","r");
+        if(fptr == NULL) {
+          cout << "Data File Not Found !" << endl;
+          exit(1);
+        }
+        cout << "---------------------------------------------------------------------------------------------" << endl;
+
+        while(fread(&root, sizeof(struct busroot), 1, fptr))
+
+            // cout << "Data File Not Found !" << endl;
+            // printf ("\t\t Name = %s \t| From = %s \t| To = %s  \t| Distance = %s \n", root.root_name,root.from, root.to, root.distance);
+
+        cout << "---------------------------------------------------------------------------------------------" << endl;
+
+        fclose (fptr);
+    }
 };
 
 int main()
