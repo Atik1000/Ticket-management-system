@@ -2,3 +2,4 @@ ctg-dhaka ctg dhaka 110km
 dhaka-ctg dhaka ctg 112km 
 ctg-cox ctg cox 60km
 cox-saint cox teknaf 40km
+Dhaka Gabtoli 12 98km
