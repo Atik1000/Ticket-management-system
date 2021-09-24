@@ -180,7 +180,7 @@ void user_login()
 
 void registration(string text, string fileName, void (*login)())
 {
-    string username, password, email,f_name,l_name,phone;
+    string username, password, email;
     cout << "********************************" << text << " "
          << "Panel************************************\n";
     cout << "\nChoose a username and password combination \n\n";
@@ -189,16 +189,20 @@ void registration(string text, string fileName, void (*login)())
 
     cout << "\n\n\t\t\tEnter username: ";
     cin >> username;
+
+    // cout << "\t\t\tEnter FirstName: ";
+    // cin >> f_name;
+    // cout << "\t\t\tEnter LastName: ";
+    // cin >> l_name;
+    // cout << "\t\t\tEnter Phone: ";
+    // cin >> phone;
+
     cout << "\t\t\tEnter Email: ";
     cin >> email;
-    cout << "\t\t\tEnter First Name: ";
-    cin >> f_name;
-    cout << "\t\t\tEnter Last Name: ";
-    cin >> l_name;
     cout << "\t\t\tEnter password: ";
     cin >> password;
     ofstream reg(fileName, ios::app);
-    reg << username << " " << password << " " << email << endl;
+    reg << username << " " << password << " " << email  << endl; //<<" "<<f_name<<" "<<l_name<<" "<<phone
     reg.close();
     cout << "********************************" << text << " "
          << "Panel************************************\n";
@@ -208,6 +212,8 @@ void registration(string text, string fileName, void (*login)())
     cin.get();
     (*login)();
 }
+
+
 
 void admin_panel(string username)
 {
